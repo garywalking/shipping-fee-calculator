@@ -1,11 +1,11 @@
 import pandas as pd
 
-# 读取CSV文件，兼容常见编码
+
 def load_shipping_data(file_path):
     try:
         df = pd.read_csv(file_path, encoding='utf-8')
     except UnicodeDecodeError:
-        try:
+        
             df = pd.read_csv(file_path, encoding='gbk')
         except UnicodeDecodeError:
             df = pd.read_csv(file_path, encoding='ansi')
